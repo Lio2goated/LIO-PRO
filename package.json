@@ -1,0 +1,8 @@
+{
+  "name": "leo-tweaks",
+  "private": true,
+  "dependencies": {
+    "@supabase/supabase-js": "^2.118.0",
+    "stripe": "^23.1.0"
+  }
+}

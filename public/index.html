@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lio Tweaks | Optimize Your PC. Elevate Your Game.</title>
+<meta name="description" content="Lio Tweaks — gaming performance tools, settings recommendations, guides and Pro membership. Created by slpet lio.">
+<meta name="theme-color" content="#070707">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<!-- =================== HEADER =================== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="#/"><span class="bolt">⚡</span>LIO <span>TWEAKS</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav class="nav" id="mainNav">
+      <a href="#/" data-route="home">Home</a>
+      <a href="#/tools" data-route="tools">Gaming Tools</a>
+      <a href="#/fortnite" data-route="fortnite">Fortnite</a>
+      <a href="#/controller" data-route="controller">Controller Lab</a>
+      <a href="#/kbm" data-route="kbm">Keyboard &amp; Mouse</a>
+      <a href="#/guides" data-route="guides">Guides</a>
+      <a href="#/dashboard" data-route="dashboard">Dashboard</a>
+      <a href="#/pro" data-route="pro" class="nav-pro">Lio Tweaks Pro</a>
+      <a href="#/community" data-route="community">Discord</a>
+      <a href="#/account" data-route="account">Account</a>
+    </nav>
+    <div class="account-chip" id="accountChip">Not logged in</div>
+  </div>
+</header>
+
+<main>
+
+<!-- =================== HOME =================== -->
+<div class="view" data-view="home">
+  <div class="hero">
+    <span class="eyebrow">Gaming Performance Platform</span>
+    <h1>OPTIMIZE YOUR PC.<br><span class="r">ELEVATE</span> YOUR <span class="y">GAME.</span></h1>
+    <p class="lead">Lio Tweaks brings performance recommendations, personalized settings, controller and mouse labs, and easy-to-follow guides together in one place. Built for beginners, casual players, competitive players and creators.</p>
+    <div class="btn-row">
+      <a class="btn big" href="#/tools">Explore Gaming Tools</a>
+      <a class="btn big ghost" href="#/pro">See Lio Tweaks Pro</a>
+    </div>
+    <div class="stat-row">
+      <div><b>7</b>Free tools</div>
+      <div><b>6</b>Supported games</div>
+      <div><b>25+</b>Step-by-step guides</div>
+    </div>
+  </div>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="section-title">
+        <span class="eyebrow">Free for everyone</span>
+        <h2>FREE <span class="y">TOOLS</span></h2>
+        <p>Enter your setup, get clear starting recommendations, and save what works to your account.</p>
+      </div>
+      <div class="grid">
+        <a class="card" href="#/pc"><span class="icon">🖥️</span><h3>PC Analyzer</h3><p>Enter your specs for a personalized summary, likely limits and recommended settings.</p></a>
+        <a class="card" href="#/fortnite"><span class="icon">🎮</span><h3>Fortnite Optimizer</h3><p>Graphics, display, rendering and input settings for PC and console.</p></a>
+        <a class="card" href="#/controller"><span class="icon">🕹️</span><h3>Controller Lab</h3><p>Sensitivity, deadzones and layouts tuned to how you play.</p></a>
+        <a class="card" href="#/kbm"><span class="icon">⌨️</span><h3>Keyboard &amp; Mouse Lab</h3><p>DPI, sensitivity, polling rate and keybind suggestions.</p></a>
+      </div>
+      <div class="btn-row" style="justify-content:center"><a class="btn ghost" href="#/tools">View all tools</a></div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="wrap">
+      <div class="grid two" style="align-items:center">
+        <div>
+          <span class="eyebrow">Premium</span>
+          <h2 style="font-size:clamp(26px,4vw,38px)">LIO TWEAKS <span class="y">PRO</span></h2>
+          <p class="muted">Advanced PC recommendations, premium Fortnite guides, ready-made controller presets, extra mouse and keyboard tuning, and exclusive tutorials — for $15/month.</p>
+          <div class="btn-row"><a class="btn yellow" href="#/pro">Compare Free vs Pro</a></div>
+        </div>
+        <div class="card pro">
+          <h3>What Pro adds</h3>
+          <ul class="muted" style="padding-left:18px;margin:0">
+            <li>Advanced PC performance playbooks</li>
+            <li>Premium Fortnite optimization guides</li>
+            <li>Advanced controller presets you can apply in one click</li>
+            <li>Extra keyboard &amp; mouse tuning guides</li>
+            <li>Up to 100 saved profiles (Free: 10)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="section-title">
+        <span class="eyebrow">Learn</span>
+        <h2>FEATURED <span class="y">GUIDES</span></h2>
+      </div>
+      <div class="grid" id="featuredGuides"></div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>SUPPORTED <span class="y">GAMES</span></h2>
+        <p>Each game has its own guides. More games are on the way.</p>
+      </div>
+      <div class="grid" id="gamesGrid"></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="discord-band">
+        <span class="eyebrow">Community</span>
+        <h2>JOIN THE <span class="y">LIO TWEAKS</span> DISCORD</h2>
+        <p class="muted" style="max-width:560px;margin:0 auto 22px">Connect with other gamers, share your settings, get help with your setup and hear about new Lio Tweaks features first.</p>
+        <a class="btn big" href="https://discord.gg/meK8HTgKV" target="_blank" rel="noopener">Join Discord</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- =================== GAMING PERFORMANCE CENTER =================== -->
+<div class="view" data-view="tools">
+  <div class="wrap page-head">
+    <span class="eyebrow">Dashboard</span>
+    <h1>GAMING PERFORMANCE <span class="y">CENTER</span></h1>
+    <p>Every Lio Tweaks tool in one place.</p>
+  </div>
+  <div class="wrap">
+    <div class="card-cat">PC &amp; System</div>
+    <div class="grid">
+      <a class="card" href="#/pc"><span class="icon">🖥️</span><h3>PC Analyzer</h3><p>Hardware summary, likely bottlenecks, recommended settings and upgrade ideas.</p></a>
+      <a class="card" href="#/system"><span class="icon">📟</span><h3>System Information</h3><p>See what your browser can report about this device — screen, refresh rate, cores and graphics.</p></a>
+    </div>
+    <div class="card-cat">Game Optimizers</div>
+    <div class="grid">
+      <a class="card" href="#/fortnite"><span class="icon">🎮</span><h3>Fortnite Optimizer</h3><p>Personalized Fortnite settings for PC and console.</p></a>
+    </div>
+    <div class="card-cat">Input Labs</div>
+    <div class="grid">
+      <a class="card" href="#/controller"><span class="icon">🕹️</span><h3>Controller Lab</h3><p>Build and save controller profiles.</p></a>
+      <a class="card" href="#/kbm"><span class="icon">⌨️</span><h3>Keyboard &amp; Mouse Lab</h3><p>Sensitivity, DPI and keybind recommendations.</p></a>
+      <a class="card" href="#/studio"><span class="icon">🎨</span><h3>Controller Studio</h3><p>Design a custom controller look with a live preview.</p></a>
+    </div>
+    <div class="card-cat">Learn &amp; Manage</div>
+    <div class="grid">
+      <a class="card" href="#/guides"><span class="icon">📚</span><h3>Performance Guides</h3><p>Step-by-step guides for Fortnite, PC, console and more.</p></a>
+      <a class="card" href="#/dashboard"><span class="icon">💾</span><h3>Saved Profiles</h3><p>Load, rename, update and delete your saved settings.</p></a>
+      <a class="card pro" href="#/pro"><span class="icon">⭐</span><h3>Premium Tools <span class="badge">Pro</span></h3><p>Advanced playbooks, presets and exclusive tutorials.</p></a>
+    </div>
+  </div>
+</div>
+
+<!-- =================== PC ANALYZER =================== -->
+<div class="view" data-view="pc">
+  <div class="wrap page-head">
+    <span class="eyebrow">Tool</span>
+    <h1>PC <span class="y">ANALYZER</span></h1>
+    <p>Enter your computer's specs and get a personalized analysis. Lio Tweaks does not scan your hardware — results are based only on what you enter. Not sure what you have? Try <a href="#/system">System Information</a>.</p>
+  </div>
+  <div class="wrap tool-layout">
+    <form class="card" id="pcForm" novalidate>
+      <label for="pcCpu">Processor (CPU)</label>
+      <input id="pcCpu" placeholder="e.g. Ryzen 5 5600 or Core i5-12400F" maxlength="80" required>
+      <label for="pcGpu">Graphics card (GPU)</label>
+      <input id="pcGpu" placeholder="e.g. RTX 3060 or RX 6600" maxlength="80" required>
+      <div class="field-row">
+        <div>
+          <label for="pcRam">Installed RAM</label>
+          <select id="pcRam">
+            <option value="4">4 GB</option><option value="8">8 GB</option>
+            <option value="16" selected>16 GB</option><option value="32">32 GB</option><option value="64">64 GB or more</option>
+          </select>
+        </div>
+        <div>
+          <label for="pcStorage">Storage type</label>
+          <select id="pcStorage">
+            <option value="nvme">NVMe SSD</option><option value="sata">SATA SSD</option>
+            <option value="hdd">Hard drive (HDD)</option><option value="unknown">Not sure</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div>
+          <label for="pcRefresh">Monitor refresh rate</label>
+          <select id="pcRefresh">
+            <option value="60">60Hz</option><option value="75">75Hz</option><option value="120">120Hz</option>
+            <option value="144" selected>144Hz</option><option value="165">165Hz</option><option value="180">180Hz</option>
+            <option value="240">240Hz</option><option value="360">360Hz</option>
+          </select>
+        </div>
+        <div>
+          <label for="pcRes">Screen resolution</label>
+          <select id="pcRes">
+            <option value="1920x1080">1920×1080 (1080p)</option><option value="2560x1440">2560×1440 (1440p)</option>
+            <option value="3440x1440">3440×1440 (ultrawide)</option><option value="3840x2160">3840×2160 (4K)</option>
+            <option value="1366x768">1366×768 (laptop)</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div>
+          <label for="pcOs">Operating system</label>
+          <select id="pcOs">
+            <option value="win11">Windows 11</option><option value="win10">Windows 10</option>
+            <option value="macos">macOS</option><option value="linux">Linux / SteamOS</option>
+          </select>
+        </div>
+        <div>
+          <label for="pcGame">Main game</label>
+          <select id="pcGame"></select>
+        </div>
+      </div>
+      <button class="btn block" type="submit" style="margin-top:20px">Analyze My PC</button>
+      <p class="msg" id="pcMsg"></p>
+    </form>
+    <div class="results" id="pcResults"><div class="empty">Your analysis will appear here.</div></div>
+  </div>
+</div>
+
+<!-- =================== SYSTEM INFORMATION =================== -->
+<div class="view" data-view="system">
+  <div class="wrap page-head">
+    <span class="eyebrow">Tool</span>
+    <h1>SYSTEM <span class="y">INFORMATION</span></h1>
+    <p>This shows only what your web browser is allowed to report about this device. It is not a hardware scan — browsers hide or round some details for privacy, so treat these as hints.</p>
+  </div>
+  <div class="wrap tool-layout">
+    <div class="card">
+      <h3>Detected by your browser</h3>
+      <dl class="kv" id="sysInfo"><dt>Status</dt><dd>Reading…</dd></dl>
+      <div class="btn-row">
+        <button class="btn" id="sysRefresh" type="button">Measure Again</button>
+        <button class="btn ghost" id="sysToAnalyzer" type="button">Use in PC Analyzer</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Find your exact specs on Windows</h3>
+      <ol class="muted" style="padding-left:18px">
+        <li><b>Processor and RAM:</b> press <b>Win + Pause/Break</b>, or open Settings › System › About.</li>
+        <li><b>Graphics card:</b> press <b>Ctrl + Shift + Esc</b> to open Task Manager › Performance › GPU.</li>
+        <li><b>Storage type:</b> in Task Manager › Performance, each disk shows "SSD" or "HDD".</li>
+        <li><b>Refresh rate:</b> Settings › System › Display › Advanced display.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- =================== FORTNITE OPTIMIZER =================== -->
+<div class="view" data-view="fortnite">
+  <div class="wrap page-head">
+    <span class="eyebrow">Game Optimizer</span>
+    <h1>FORTNITE <span class="y">OPTIMIZER</span></h1>
+    <p>Personalized starting settings for Fortnite. These are recommendations, not guaranteed FPS gains — results depend on your hardware and each game update.</p>
+  </div>
+  <div class="wrap tool-layout">
+    <form class="card" id="fnForm" novalidate>
+      <div class="notice hidden" id="fnLoaded"></div>
+      <label>Platform</label>
+      <select id="fnPlatform">
+        <option value="pc">PC</option>
+        <option value="ps5">PlayStation 5</option>
+        <option value="xsx">Xbox Series X</option>
+        <option value="xss">Xbox Series S</option>
+        <option value="ps4">PlayStation 4</option>
+        <option value="xone">Xbox One</option>
+        <option value="switch">Nintendo Switch</option>
+      </select>
+      <div id="fnPcFields">
+        <label for="fnCpu">Processor (CPU)</label>
+        <input id="fnCpu" placeholder="e.g. Ryzen 5 5600" maxlength="80">
+        <label for="fnGpu">Graphics card (GPU)</label>
+        <input id="fnGpu" placeholder="e.g. RTX 3060" maxlength="80">
+      </div>
+      <div class="field-row">
+        <div>
+          <label for="fnRefresh">Display refresh rate</label>
+          <select id="fnRefresh">
+            <option value="60">60Hz</option><option value="120">120Hz</option><option value="144" selected>144Hz</option>
+            <option value="165">165Hz</option><option value="240">240Hz</option><option value="360">360Hz</option>
+          </select>
+        </div>
+        <div>
+          <label for="fnRes">Resolution</label>
+          <select id="fnRes">
+            <option value="1080">1080p</option><option value="1440">1440p</option><option value="2160">4K</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div>
+          <label for="fnGoal">Performance goal</label>
+          <select id="fnGoal">
+            <option value="fps">Maximum FPS</option><option value="balanced" selected>Balanced</option><option value="visuals">Best visuals</option>
+          </select>
+        </div>
+        <div>
+          <label for="fnQuality">Preferred graphics quality</label>
+          <select id="fnQuality">
+            <option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option><option value="epic">Epic</option>
+          </select>
+        </div>
+      </div>
+      <label for="fnInput">Input</label>
+      <select id="fnInput"><option value="controller">Controller</option><option value="kbm">Keyboard &amp; mouse</option></select>
+      <button class="btn block" type="submit" style="margin-top:20px">Generate My Settings</button>
+      <p class="msg" id="fnMsg"></p>
+    </form>
+    <div>
+      <div class="results" id="fnResults"><div class="empty">Your Fortnite settings will appear here.</div></div>
+      <div class="card hidden" id="fnSaveCard"></div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== CONTROLLER LAB =================== -->
+<div class="view" data-view="controller">
+  <div class="wrap page-head">
+    <span class="eyebrow">Input Lab</span>
+    <h1>CONTROLLER <span class="y">LAB</span></h1>
+    <p>Set your sensitivities, deadzones and layout, then generate a profile with personalized starting recommendations. Values use a simple 1–100 scale — match them to the closest setting in your game.</p>
+  </div>
+  <div class="wrap tool-layout">
+    <form class="card" id="ctForm" novalidate>
+      <div class="notice hidden" id="ctLoaded"></div>
+      <label for="ctType">Controller</label>
+      <select id="ctType">
+        <option value="playstation">PlayStation controller</option>
+        <option value="xbox">Xbox controller</option>
+        <option value="other">Other supported controller</option>
+      </select>
+      <label for="ctLook">Look sensitivity</label>
+      <div class="range-wrap"><input type="range" id="ctLook" min="1" max="100" value="50"><output for="ctLook">50</output></div>
+      <label for="ctAim">Aim (ADS / targeting) sensitivity</label>
+      <div class="range-wrap"><input type="range" id="ctAim" min="1" max="100" value="45"><output for="ctAim">45</output></div>
+      <label for="ctBuild">Build sensitivity <span class="hint">(Fortnite)</span></label>
+      <div class="range-wrap"><input type="range" id="ctBuild" min="1" max="100" value="60"><output for="ctBuild">60</output></div>
+      <label for="ctEdit">Edit sensitivity <span class="hint">(Fortnite)</span></label>
+      <div class="range-wrap"><input type="range" id="ctEdit" min="1" max="100" value="60"><output for="ctEdit">60</output></div>
+      <label for="ctLdz">Left stick deadzone</label>
+      <div class="range-wrap"><input type="range" id="ctLdz" min="0" max="30" value="10"><output for="ctLdz">10%</output></div>
+      <label for="ctRdz">Right stick deadzone</label>
+      <div class="range-wrap"><input type="range" id="ctRdz" min="0" max="30" value="8"><output for="ctRdz">8%</output></div>
+      <div class="field-row">
+        <div>
+          <label for="ctLayout">Button layout</label>
+          <select id="ctLayout">
+            <option value="builder-pro">Builder Pro</option><option value="combat-pro">Combat Pro</option>
+            <option value="quick-builder">Quick Builder</option><option value="default">Default</option><option value="custom">Custom / paddles</option>
+          </select>
+        </div>
+        <div>
+          <label for="ctStyle">Playstyle</label>
+          <select id="ctStyle">
+            <option value="aggressive">Aggressive</option><option value="balanced" selected>Balanced</option>
+            <option value="defensive">Defensive</option><option value="builder">Heavy builder</option><option value="zerobuild">Zero Build</option>
+          </select>
+        </div>
+      </div>
+      <label for="ctAimPref">Aim preference</label>
+      <select id="ctAimPref">
+        <option value="exponential">Smooth / exponential response</option>
+        <option value="linear">Direct / linear response</option>
+      </select>
+      <button class="btn block" type="submit" style="margin-top:20px">Generate Controller Profile</button>
+      <p class="msg" id="ctMsg"></p>
+    </form>
+    <div>
+      <div class="results" id="ctResults"><div class="empty">Your controller profile will appear here.</div></div>
+      <div class="card hidden" id="ctSaveCard"></div>
+      <div class="card pro hidden" id="ctProPresets" style="margin-top:16px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== KEYBOARD & MOUSE LAB =================== -->
+<div class="view" data-view="kbm">
+  <div class="wrap page-head">
+    <span class="eyebrow">Input Lab</span>
+    <h1>KEYBOARD &amp; MOUSE <span class="y">LAB</span></h1>
+    <p>Enter your mouse and keyboard setup for personalized starting recommendations.</p>
+  </div>
+  <div class="wrap tool-layout">
+    <form class="card" id="kmForm" novalidate>
+      <div class="notice hidden" id="kmLoaded"></div>
+      <div class="field-row">
+        <div>
+          <label for="kmDpi">Mouse DPI</label>
+          <input id="kmDpi" type="number" min="100" max="32000" step="50" value="800" required>
+        </div>
+        <div>
+          <label for="kmSens">In-game sensitivity</label>
+          <input id="kmSens" type="number" min="0.001" max="100" step="0.001" value="0.08" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div>
+          <label for="kmPoll">Polling rate</label>
+          <select id="kmPoll">
+            <option value="125">125Hz</option><option value="500">500Hz</option><option value="1000" selected>1000Hz</option>
+            <option value="2000">2000Hz</option><option value="4000">4000Hz</option><option value="8000">8000Hz</option>
+          </select>
+        </div>
+        <div>
+          <label for="kmStyle">Playstyle</label>
+          <select id="kmStyle">
+            <option value="tracking">Tracking aim</option><option value="flicking">Flicking aim</option>
+            <option value="balanced" selected>Balanced</option><option value="builder">Heavy builder</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div>
+          <label for="kmLayout">Keyboard layout</label>
+          <select id="kmLayout">
+            <option value="full">Full size</option><option value="tkl">Tenkeyless (TKL)</option>
+            <option value="75">75%</option><option value="65">65%</option><option value="60">60%</option>
+          </select>
+        </div>
+        <div>
+          <label for="kmLang">Key arrangement</label>
+          <select id="kmLang"><option value="qwerty">QWERTY</option><option value="azerty">AZERTY</option><option value="qwertz">QWERTZ</option></select>
+        </div>
+      </div>
+      <label for="kmBinds">Preferred keybinds</label>
+      <select id="kmBinds">
+        <option value="default">Game defaults</option>
+        <option value="custom">Custom (around WASD)</option>
+        <option value="mouse">Custom with mouse side buttons</option>
+        <option value="lefty">Left-handed (mouse on left)</option>
+      </select>
+      <button class="btn block" type="submit" style="margin-top:20px">Get Recommendations</button>
+      <p class="msg" id="kmMsg"></p>
+    </form>
+    <div>
+      <div class="results" id="kmResults"><div class="empty">Your keyboard &amp; mouse recommendations will appear here.</div></div>
+      <div class="card hidden" id="kmSaveCard"></div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== CONTROLLER STUDIO =================== -->
+<div class="view" data-view="studio">
+  <div class="wrap page-head">
+    <span class="eyebrow">Design</span>
+    <h1>CONTROLLER <span class="y">STUDIO</span></h1>
+    <p>Design your own controller look. This is a visual concept for fun — it does not change a real controller.</p>
+  </div>
+  <div class="wrap tool-layout" style="grid-template-columns:minmax(0,1fr) minmax(0,380px)">
+    <div>
+      <div class="studio-stage" id="studioStage"></div>
+      <p class="disclaimer" id="studioLabel" style="text-align:center"></p>
+    </div>
+    <div class="card">
+      <div class="notice hidden" id="stLoaded"></div>
+      <label>Theme</label>
+      <div class="seg" id="stThemes"></div>
+      <label for="stShell">Shell color</label>
+      <div class="color-row"><input type="color" id="stShell" value="#151515"><div class="swatches" data-for="stShell"></div></div>
+      <label for="stButtons">Button color</label>
+      <div class="color-row"><input type="color" id="stButtons" value="#ef2525"><div class="swatches" data-for="stButtons"></div></div>
+      <label for="stSticks">Thumbstick color</label>
+      <div class="color-row"><input type="color" id="stSticks" value="#ffd600"><div class="swatches" data-for="stSticks"></div></div>
+      <label for="stTouchpad">Touchpad color</label>
+      <div class="color-row"><input type="color" id="stTouchpad" value="#222222"><div class="swatches" data-for="stTouchpad"></div></div>
+      <label for="stAccent">Accent color</label>
+      <div class="color-row"><input type="color" id="stAccent" value="#ef2525"><div class="swatches" data-for="stAccent"></div></div>
+      <div class="field-row">
+        <div>
+          <label for="stLogo">Logo text</label>
+          <input id="stLogo" value="LIO TWEAKS" maxlength="14">
+        </div>
+        <div>
+          <label for="stPaddles">Back paddles</label>
+          <select id="stPaddles"><option value="0">None</option><option value="2">2 paddles</option><option value="4">4 paddles</option></select>
+        </div>
+      </div>
+      <label for="stName">Design name</label>
+      <input id="stName" placeholder="My Lio controller" maxlength="60">
+      <div class="btn-row">
+        <button class="btn" id="stSave" type="button">Save Design</button>
+        <button class="btn ghost hidden" id="stUpdate" type="button">Update Loaded Design</button>
+      </div>
+      <p class="msg" id="stMsg"></p>
+    </div>
+  </div>
+</div>
+
+<!-- =================== GUIDES =================== -->
+<div class="view" data-view="guides">
+  <div class="wrap page-head">
+    <span class="eyebrow">Knowledge Center</span>
+    <h1>GAMING <span class="y">GUIDES</span></h1>
+    <p>Clear, step-by-step guides. Menus in games and Windows change over time, so names may differ slightly from what you see.</p>
+  </div>
+  <div class="wrap">
+    <div class="guide-filters" id="guideFilters"></div>
+    <div class="grid" id="guideList"></div>
+  </div>
+</div>
+
+<div class="view" data-view="guide">
+  <div class="wrap page-head" style="padding-bottom:0">
+    <a class="back-link" href="#/guides" id="guideBack">← All guides</a>
+  </div>
+  <div class="wrap">
+    <article class="guide-article" id="guideArticle"></article>
+  </div>
+</div>
+
+<div class="view" data-view="game">
+  <div class="wrap page-head" id="gameHead"></div>
+  <div class="wrap">
+    <div class="grid" id="gameGuides"></div>
+    <div id="gameTools" style="margin-top:28px"></div>
+  </div>
+</div>
+
+<!-- =================== DASHBOARD =================== -->
+<div class="view" data-view="dashboard">
+  <div class="wrap page-head">
+    <span class="eyebrow">Your Space</span>
+    <h1>MY <span class="y">DASHBOARD</span></h1>
+  </div>
+  <div class="wrap">
+    <div id="dashLoggedOut" class="card">
+      <h3>Log in to see your dashboard</h3>
+      <p>Your saved Fortnite, controller and keyboard &amp; mouse profiles, membership and account settings live here.</p>
+      <a class="btn" href="#/account">Log In or Create Account</a>
+    </div>
+    <div id="dashLoggedIn" class="hidden">
+      <div class="grid">
+        <div class="card"><h3>Account</h3><div id="dashWho"></div></div>
+        <div class="card"><h3>Membership</h3><div id="dashMember"></div></div>
+        <div class="card"><h3>Saved profiles</h3><div id="dashCounts"></div></div>
+      </div>
+      <div class="grid two" style="margin-top:18px">
+        <div class="card"><h3>🎮 Fortnite profiles</h3><div class="profile-list" data-ptype="fortnite"></div></div>
+        <div class="card"><h3>🕹️ Controller profiles</h3><div class="profile-list" data-ptype="controller"></div></div>
+        <div class="card"><h3>⌨️ Keyboard &amp; mouse profiles</h3><div class="profile-list" data-ptype="keyboard_mouse"></div></div>
+        <div class="card"><h3>🎨 Controller designs</h3><div class="profile-list" data-ptype="studio_design"></div></div>
+      </div>
+      <div class="grid two" style="margin-top:18px">
+        <div class="card"><h3>Recently used tools <span class="muted small">(this device)</span></h3><div id="dashRecent"></div></div>
+        <div class="card">
+          <h3>Account settings</h3>
+          <form id="nameForm" novalidate>
+            <label for="dashName">Display name</label>
+            <input id="dashName" maxlength="40" placeholder="Your gamer name">
+            <button class="btn small" type="submit" style="margin-top:10px">Save Name</button>
+            <p class="msg" id="nameMsg"></p>
+          </form>
+          <form id="pwForm" novalidate>
+            <label for="dashPw">New password</label>
+            <input id="dashPw" type="password" autocomplete="new-password" placeholder="At least 8 characters">
+            <label for="dashPw2">Confirm new password</label>
+            <input id="dashPw2" type="password" autocomplete="new-password">
+            <button class="btn small" type="submit" style="margin-top:10px">Change Password</button>
+            <p class="msg" id="pwMsg"></p>
+          </form>
+          <div class="btn-row"><button class="btn ghost" type="button" data-action="logout">Log Out</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== PRO =================== -->
+<div class="view" data-view="pro">
+  <div class="wrap pro-hero">
+    <span class="eyebrow">Premium Membership</span>
+    <h1 style="font-size:clamp(32px,6vw,58px)">LIO TWEAKS <span class="y">PRO</span></h1>
+    <div class="price-tag">$15<span> / month</span></div>
+    <p class="muted">Cancel anytime. Secure payments by Stripe.</p>
+    <div id="proStatus" style="margin:10px 0"></div>
+    <div class="btn-row" style="justify-content:center">
+      <button class="btn yellow big" id="proSubscribe" type="button">Get Lio Tweaks Pro</button>
+      <button class="btn ghost hidden" id="proManage" type="button">Manage Subscription</button>
+    </div>
+    <p class="msg" id="proMsg"></p>
+  </div>
+  <section class="block">
+    <div class="wrap">
+      <div class="section-title"><h2>FREE <span class="y">VS</span> PRO</h2></div>
+      <div class="card table-scroll">
+        <table class="compare">
+          <thead><tr><th>Feature</th><th>Free</th><th class="pro-col">Pro</th></tr></thead>
+          <tbody>
+            <tr><td>PC Analyzer, Fortnite Optimizer, Controller &amp; KBM Labs</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+            <tr><td>Controller Studio &amp; System Information</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+            <tr><td>Free step-by-step guides</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+            <tr><td>Saved profiles</td><td>Up to 10</td><td class="y">Up to 100</td></tr>
+            <tr><td>Advanced PC performance playbooks</td><td class="no">—</td><td class="yes">✓</td></tr>
+            <tr><td>Premium Fortnite optimization guides</td><td class="no">—</td><td class="yes">✓</td></tr>
+            <tr><td>Advanced controller presets (one-click apply)</td><td class="no">—</td><td class="yes">✓</td></tr>
+            <tr><td>Extra keyboard &amp; mouse tuning guides</td><td class="no">—</td><td class="yes">✓</td></tr>
+            <tr><td>Exclusive tutorials &amp; new premium tools as they launch</td><td class="no">—</td><td class="yes">✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="block alt">
+    <div class="wrap">
+      <div class="section-title"><h2>PRO <span class="y">LIBRARY</span></h2><p>Pro content is only sent from our server after your membership is verified.</p></div>
+      <div class="grid" id="proLibrary"></div>
+    </div>
+  </section>
+</div>
+
+<!-- =================== COMMUNITY =================== -->
+<div class="view" data-view="community">
+  <div class="wrap" style="padding-top:48px">
+    <div class="discord-band">
+      <span class="eyebrow">Community</span>
+      <h2>JOIN THE <span class="y">LIO TWEAKS</span> DISCORD</h2>
+      <p class="muted" style="max-width:600px;margin:0 auto 22px">Connect with other gamers, share your settings and profiles, ask questions about your setup, and get updates about new Lio Tweaks tools and guides.</p>
+      <a class="btn big" href="https://discord.gg/meK8HTgKV" target="_blank" rel="noopener">Join Discord</a>
+    </div>
+    <div class="grid" style="margin-top:22px">
+      <div class="card"><h3>Share settings</h3><p>Post your favorite Lio Tweaks profiles and see what works for others.</p></div>
+      <div class="card"><h3>Get help</h3><p>Stuck on a setting? Ask the community.</p></div>
+      <div class="card"><h3>Stay updated</h3><p>Hear about new tools, games and guides first.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== ACCOUNT =================== -->
+<div class="view" data-view="account">
+  <div class="wrap page-head">
+    <span class="eyebrow">Account</span>
+    <h1>YOUR <span class="y">ACCOUNT</span></h1>
+  </div>
+  <div class="wrap" style="max-width:520px">
+    <div class="card" id="acctSignedIn" style="display:none">
+      <h3>You're signed in</h3>
+      <p id="acctEmail"></p>
+      <div class="btn-row">
+        <a class="btn" href="#/dashboard">Go to Dashboard</a>
+        <button class="btn ghost" type="button" data-action="logout">Log Out</button>
+      </div>
+    </div>
+
+    <div class="card" id="acctForms">
+      <div class="guide-filters" role="tablist">
+        <button class="chip active" type="button" data-tab="login">Log In</button>
+        <button class="chip" type="button" data-tab="signup">Create Account</button>
+        <button class="chip" type="button" data-tab="forgot">Forgot Password</button>
+      </div>
+
+      <form id="loginForm" data-panel="login" novalidate>
+        <label for="loginEmail">Email</label>
+        <input id="loginEmail" type="email" autocomplete="email" placeholder="you@example.com">
+        <label for="loginPw">Password</label>
+        <input id="loginPw" type="password" autocomplete="current-password">
+        <button class="btn block" type="submit" style="margin-top:18px">Log In</button>
+      </form>
+
+      <form id="signupForm" data-panel="signup" class="hidden" novalidate>
+        <label for="suEmail">Email</label>
+        <input id="suEmail" type="email" autocomplete="email" placeholder="you@example.com">
+        <label for="suPw">Password <span class="hint">(at least 8 characters)</span></label>
+        <input id="suPw" type="password" autocomplete="new-password">
+        <label for="suPw2">Confirm password</label>
+        <input id="suPw2" type="password" autocomplete="new-password">
+        <button class="btn block" type="submit" style="margin-top:18px">Create Account</button>
+      </form>
+
+      <form id="forgotForm" data-panel="forgot" class="hidden" novalidate>
+        <label for="fpEmail">Email</label>
+        <input id="fpEmail" type="email" autocomplete="email" placeholder="you@example.com">
+        <button class="btn block" type="submit" style="margin-top:18px">Send Reset Link</button>
+      </form>
+
+      <form id="resetForm" data-panel="reset" class="hidden" novalidate>
+        <p class="notice">Choose a new password for your account.</p>
+        <label for="rpPw">New password</label>
+        <input id="rpPw" type="password" autocomplete="new-password">
+        <label for="rpPw2">Confirm new password</label>
+        <input id="rpPw2" type="password" autocomplete="new-password">
+        <button class="btn block" type="submit" style="margin-top:18px">Set New Password</button>
+      </form>
+
+      <p class="msg" id="acctMsg"></p>
+    </div>
+  </div>
+</div>
+
+<!-- =================== 404 =================== -->
+<div class="view" data-view="notfound">
+  <div class="wrap page-head">
+    <h1>PAGE NOT <span class="y">FOUND</span></h1>
+    <p>That page doesn't exist. <a href="#/">Go home</a>.</p>
+  </div>
+</div>
+
+</main>
+
+<!-- =================== FOOTER =================== -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <a class="logo" href="#/" style="margin:0"><span class="bolt">⚡</span>LIO <span>TWEAKS</span></a>
+      <p class="muted small" style="margin-top:10px">Gaming performance tools, personalized settings and guides.</p>
+      <p class="small">Created and owned by <strong class="y">slpet lio</strong></p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <a href="#/pc">PC Analyzer</a><a href="#/fortnite">Fortnite Optimizer</a>
+      <a href="#/controller">Controller Lab</a><a href="#/kbm">Keyboard &amp; Mouse</a><a href="#/studio">Controller Studio</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="#/guides">All Guides</a><a href="#/system">System Information</a><a href="#/pro">Lio Tweaks Pro</a>
+    </div>
+    <div>
+      <h4>Community</h4>
+      <a href="https://discord.gg/meK8HTgKV" target="_blank" rel="noopener">Discord</a>
+      <a href="#/account">Account</a><a href="#/dashboard">Dashboard</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span><strong>LIO TWEAKS</strong> — Optimize Your PC. Elevate Your Game.</span>
+    <span>© <span id="year">2026</span> Lio Tweaks. Created by slpet lio. All rights reserved.</span>
+  </div>
+</footer>
+
+<div id="toast-stack" aria-live="polite"></div>
+
+<!-- Supabase library (pinned version) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
+<!-- Lio Tweaks modules — each file handles one part of the site -->
+<script src="assets/js/config.js"></script>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/data-games.js"></script>
+<script src="assets/js/data-guides.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/profiles.js"></script>
+<script src="assets/js/tool-pc.js"></script>
+<script src="assets/js/tool-system.js"></script>
+<script src="assets/js/tool-fortnite.js"></script>
+<script src="assets/js/tool-controller.js"></script>
+<script src="assets/js/tool-kbm.js"></script>
+<script src="assets/js/tool-studio.js"></script>
+<script src="assets/js/guides.js"></script>
+<script src="assets/js/dashboard.js"></script>
+<script src="assets/js/pro.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
